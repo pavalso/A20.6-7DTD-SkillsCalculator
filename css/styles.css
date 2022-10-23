@@ -1,0 +1,35 @@
+.content-box {
+    margin: auto;
+    display: flex;
+    align-content: space-between;
+    max-width: 90vw;
+    padding: 4px;
+    border: 2px solid green;
+}
+
+.selection-panel {
+    width: 50%;
+    margin-right: 2px;
+}
+
+.information-panel {
+    width: 50%;
+    margin-left: 2px;
+}
+
+.text-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    background-color: black;
+    text-transform: uppercase;
+    letter-spacing: 0.25rem;
+    font-size: 1rem;
+    padding: 10px;
+}
+
+#available-points {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
