@@ -1,11 +1,23 @@
+body {
+    margin: 0;
+}
+
+main {
+    text-transform: uppercase;
+    color: gainsboro;
+    background-image: url("../public/background.png");
+    padding-top: 5vh;
+    height: 100vh;
+}
+
 .content-box {
     margin: auto;
     display: flex;
     align-content: space-between;
     width: 90vw;
     padding: 4px;
-    border: 2px solid green;
     min-width: 760px;
+    background-color: rgba(0,0,0,.5);
 }
 
 .selection-panel {
@@ -18,19 +30,25 @@
     margin-left: 2px;
 }
 
+.text-panel-black {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    text-transform: uppercase;
+    color: whitesmoke;
+}
+
+label{
+    letter-spacing: 0.25rem;
+    font-size: 1rem;
+    margin: 10px;
+}
+
 .text-panel {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: white;
-    background-color: black;
-    text-transform: uppercase;
-}
-
-.text-panel label{
-    letter-spacing: 0.25rem;
-    font-size: 1rem;
-    padding: 10px;
 }
 
 #available-points {
@@ -39,9 +57,14 @@
 }
 
 .icon-panel {
-    background-color: rgba(0,0,0,.5);
+    margin: 6px 0px;
+    border: 2px solid black;
     display: flex;
     justify-content: flex-start;
+}
+
+.attributes-tree {
+    background-color: rgba(0,0,0,.1);
 }
 
 .selectable-icon {
@@ -51,9 +74,41 @@
     width: 20%;
     max-width: 50px;
     min-width: 20px;
+    opacity: .5;
+    cursor: pointer;
 }
 
 .selectable-icon img{
     width: 100%;
+    height: auto;
+}
+
+.list-item {
+    border-top: 2px solid black;
+}
+
+.margin-1 {
+    margin-left: 20px;
+}
+
+.margin-2 {
+    margin-left: 40px;
+}
+
+.attribute-list-item {
+    display: flex;
+    align-items: center;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.attribute-list-item .info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.attribute-list-item img {
+    width: 32px;
     height: auto;
 }

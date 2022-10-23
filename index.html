@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <script type="text/javascript" src="js/skills.js"></script>
-    <script type="text/javascript" src="js/load.js"></script>
     <title>A20.6 skills calculator</title>
   </head>
 
@@ -14,22 +13,28 @@
     <main>
       <div class="content-box">
         <div class="selection-panel">
-          <header class="text-panel">
+          <header class="text-panel-black">
             <label>competences</label>
             <label>point(s) : <span id="available-points">4</span></label>
           </header>
-          <nav class="icon-panel">
-            <div class="selectable-icon" id="test">
-              <img src="public/icons/ui_game_symbol_stealth.png">
-            </div>
+          <nav class="icon-panel" id="icon-panel">
+            <!-- Attributes icons appear here -->
           </nav>
+          <div class="attributes-tree" id="attributes-tree">
+            <div class="text-panel">
+              <label>name</label>
+              <label>level</label>
+            </div>
+            <!-- Skills appear here -->
+          </div>
         </div>
         <div class="information-panel">
 
         </div>
       </div>
     </main>
-    <script type="text/javascript" src="js/testjson.js"></script>
+    <script type="text/javascript" src="js/load.js"></script>
+    <script type="text/javascript" src="js/switch_skill.js"></script>
   </body>
 
 </html>
