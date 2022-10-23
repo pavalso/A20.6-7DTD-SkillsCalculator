@@ -2,9 +2,10 @@
     margin: auto;
     display: flex;
     align-content: space-between;
-    max-width: 90vw;
+    width: 90vw;
     padding: 4px;
     border: 2px solid green;
+    min-width: 760px;
 }
 
 .selection-panel {
@@ -24,6 +25,9 @@
     color: white;
     background-color: black;
     text-transform: uppercase;
+}
+
+.text-panel label{
     letter-spacing: 0.25rem;
     font-size: 1rem;
     padding: 10px;
@@ -32,4 +36,24 @@
 #available-points {
     font-weight: bold;
     font-size: 1.25rem;
+}
+
+.icon-panel {
+    background-color: rgba(0,0,0,.5);
+    display: flex;
+    justify-content: flex-start;
+}
+
+.selectable-icon {
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    width: 20%;
+    max-width: 50px;
+    min-width: 20px;
+}
+
+.selectable-icon img{
+    width: 100%;
+    height: auto;
 }
