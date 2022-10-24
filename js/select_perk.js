@@ -89,6 +89,7 @@ function showPerkInfo(perk, key) {
       let index = parseInt(id);
       user_levels[key] = index + 1;
       element.className = "bought-perk";
+      cost += levels[i]["cost"];
       refreshLevels();
       if (index >= perk["max_level"]) {
         return;

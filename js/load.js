@@ -34,6 +34,7 @@ const ATTR_DIV = (margin, id, icon, name, max_level, level, parent) => `
   </div>`;
 
 let user_levels = { };
+let cost = 0;
 
 for (let attribute in data) {
   let attributeData = data[attribute];
@@ -88,12 +89,12 @@ function refreshLevels() {
     let id = level.parentNode.parentNode.parentNode.id;
     level.textContent = user_levels[id] - 1 || 0;
   }
-  USED_POINTS.textContent = getCost();
+  USED_POINTS.textContent = cost;
   window.location.replace(`\#${getSaveString()}`);
 }
 
 function getSaveString() {
-  let save_string = "";
+  let save_string = `${cost}-`;
   for (let i in user_levels){
     let level = user_levels[i];
     save_string += (level - 1).toString(16);
@@ -101,20 +102,16 @@ function getSaveString() {
   return save_string;
 }
 
-function getCost() {
-  let cost = 0;
-  for (let i in user_levels){
-    let level = user_levels[i];
-    cost += level - 1;
-  }
-  return cost - 5;
-}
-
 function loadSaveString(string) {
   let x = 0;
+  let index = string.indexOf("-");
+  if (index == -1){
+    return;
+  }
+  cost = parseInt(string.substring(0, index));
+  let input_levels = string.substring(index + 1);
   for (let i in user_levels){
-    let level = parseInt(string[x], 16) + 1;
-    console.log(level);
+    let level = parseInt(input_levels[x], 16) + 1;
     if (isNaN(level)){
       return;
     }
