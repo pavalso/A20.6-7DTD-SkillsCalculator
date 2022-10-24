@@ -14,9 +14,10 @@ loadAttribute(DEFAULT_INITIAL);
 
 function loadAttribute(name) {
   if (selected != null) {
-    document.getElementById(selected).style.opacity = .5;
+    document.getElementById(selected).className = "selectable-icon";
   }
   selected = name;
-  document.getElementById(selected).style.opacity = 1;
+  document.getElementById(selected).className = "selected-icon";
   loadAttributeInHtml(selected);
+  updatePerksListeners();
 }

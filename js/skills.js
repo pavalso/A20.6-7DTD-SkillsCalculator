@@ -57,13 +57,13 @@ data = {
                 "cost": 3
             }
         },
-        "skills": [
-            {
+        "skills": {
+            "skillPerceptionCombat": {
                 "name_key": "skillCombatPerksName",
                 "name": "Beneficios de combate",
                 "icon": "ui_game_symbol_marksmanship",
-                "perks": [
-                    {
+                "perks": {
+                    "perkDeadEye": {
                         "name_key": "perkDeadEyeName",
                         "parent": "skillPerceptionCombat",
                         "name": "Ojo muerto",
@@ -120,7 +120,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkDemolitionsExpert": {
                         "name_key": "perkDemolitionsExpertName",
                         "parent": "skillPerceptionCombat",
                         "name": "Experto en demoliciones",
@@ -177,7 +177,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkJavelinMaster": {
                         "name_key": "perkJavelinMasterName",
                         "parent": "skillPerceptionCombat",
                         "name": "Maestro de la jabalina",
@@ -234,14 +234,14 @@ data = {
                             }
                         }
                     }
-                ]
+                }
             },
-            {
+            "skillPerceptionGeneral": {
                 "name_key": "skillPerceptionGeneralName",
                 "name": "Beneficios de percepción general",
                 "icon": "ui_game_symbol_stealth",
-                "perks": [
-                    {
+                "perks": {
+                    "perkLockPicking": {
                         "name_key": "perkLockPickingName",
                         "parent": "skillPerceptionGeneral",
                         "name": "Apertura de cerraduras",
@@ -280,7 +280,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkInfiltrator": {
                         "name_key": "perkInfiltratorName",
                         "parent": "skillPerceptionGeneral",
                         "name": "El infiltrador",
@@ -319,7 +319,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkAnimalTracker": {
                         "name_key": "perkAnimalTrackerName",
                         "parent": "skillPerceptionGeneral",
                         "name": "Rastreador de animales",
@@ -358,7 +358,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkPenetrator": {
                         "name_key": "perkPenetratorName",
                         "parent": "skillPerceptionGeneral",
                         "name": "El penetrador",
@@ -406,14 +406,14 @@ data = {
                             }
                         }
                     }
-                ]
+                }
             },
-            {
+            "skillPerceptionScavenging": {
                 "name_key": "skillPerceptionScavengingName",
                 "name": "Beneficios de carroñar",
                 "icon": "ui_game_symbol_hand",
-                "perks": [
-                    {
+                "perks": {
+                    "perkLuckyLooter": {
                         "name_key": "perkLuckyLooterName",
                         "parent": "skillPerceptionScavenging",
                         "name": "Saqueador con suerte",
@@ -470,7 +470,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkTreasureHunter": {
                         "name_key": "perkTreasureHunterName",
                         "parent": "skillPerceptionScavenging",
                         "name": "Cazador de tesoro",
@@ -509,7 +509,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkSalvageOperations": {
                         "name_key": "perkSalvageOperationsName",
                         "parent": "skillPerceptionScavenging",
                         "name": "Operaciones de salvamento",
@@ -566,9 +566,9 @@ data = {
                             }
                         }
                     }
-                ]
+                }
             }
-        ]
+        }
     },
     "attStrength": {
         "name_key": "attStrengthName",
@@ -628,13 +628,13 @@ data = {
                 "cost": 3
             }
         },
-        "skills": [
-            {
+        "skills": {
+            "skillStrengthCombat": {
                 "name_key": "skillCombatPerksName",
                 "name": "Beneficios de combate",
                 "icon": "ui_game_symbol_marksmanship",
-                "perks": [
-                    {
+                "perks": {
+                    "perkBoomstick": {
                         "name_key": "perkBoomstickName",
                         "parent": "skillStrengthCombat",
                         "name": "Palo explosivo",
@@ -691,7 +691,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkPummelPete": {
                         "name_key": "perkPummelPeteName",
                         "parent": "skillStrengthCombat",
                         "name": "Pete apalea",
@@ -748,7 +748,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkSkullCrusher": {
                         "name_key": "perkSkullCrusherName",
                         "parent": "skillStrengthCombat",
                         "name": "Triturador de cráneo",
@@ -805,14 +805,14 @@ data = {
                             }
                         }
                     }
-                ]
+                }
             },
-            {
+            "skillStrengthGeneral": {
                 "name_key": "skillStrengthGeneralName",
                 "name": "Beneficios generales de fuerza",
                 "icon": "ui_game_symbol_muscle",
-                "perks": [
-                    {
+                "perks": {
+                    "perkSexualTrex": {
                         "name_key": "perkSexualTrexName",
                         "parent": "skillStrengthGeneral",
                         "name": "Tiranosaurio sexual",
@@ -860,7 +860,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkHeavyArmor": {
                         "name_key": "perkHeavyArmorName",
                         "parent": "skillStrengthGeneral",
                         "name": "Armadura pesadas",
@@ -908,7 +908,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkPackMule": {
                         "name_key": "perkPackMuleName",
                         "parent": "skillStrengthGeneral",
                         "name": "Mula de carga",
@@ -965,7 +965,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkMasterChef": {
                         "name_key": "perkMasterChefName",
                         "parent": "skillStrengthGeneral",
                         "name": "Master Chef",
@@ -1022,14 +1022,14 @@ data = {
                             }
                         }
                     }
-                ]
+                }
             },
-            {
+            "skillStrengthConstruction": {
                 "name_key": "skillStrengthConstructionName",
                 "name": "Beneficios de construcción",
                 "icon": "ui_game_symbol_resource",
-                "perks": [
-                    {
+                "perks": {
+                    "perkMiner69r": {
                         "name_key": "perkMiner69rName",
                         "parent": "skillStrengthConstruction",
                         "name": "Minero del 69",
@@ -1086,7 +1086,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkMotherLode": {
                         "name_key": "perkMotherLodeName",
                         "parent": "skillStrengthConstruction",
                         "name": "La veta madre",
@@ -1143,9 +1143,9 @@ data = {
                             }
                         }
                     }
-                ]
+                }
             }
-        ]
+        }
     },
     "attFortitude": {
         "name_key": "attFortitudeName",
@@ -1205,13 +1205,13 @@ data = {
                 "cost": 3
             }
         },
-        "skills": [
-            {
+        "skills": {
+            "skillFortitudeCombat": {
                 "name_key": "skillCombatPerksName",
                 "name": "Beneficios de combate",
                 "icon": "ui_game_symbol_marksmanship",
-                "perks": [
-                    {
+                "perks": {
+                    "perkBrawler": {
                         "name_key": "perkBrawlerName",
                         "parent": "skillFortitudeCombat",
                         "name": "El alborotador",
@@ -1268,7 +1268,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkMachineGunner": {
                         "name_key": "perkMachineGunnerName",
                         "parent": "skillFortitudeCombat",
                         "name": "Ametrallador",
@@ -1325,14 +1325,14 @@ data = {
                             }
                         }
                     }
-                ]
+                }
             },
-            {
+            "skillFortitudeSurvival": {
                 "name_key": "skillFortitudeSurvivalName",
                 "name": "Beneficios de supervivencia",
                 "icon": "ui_game_symbol_survival",
-                "perks": [
-                    {
+                "perks": {
+                    "perkTheHuntsman": {
                         "name_key": "perkTheHuntsmanName",
                         "parent": "skillFortitudeSurvival",
                         "name": "El cazador",
@@ -1389,7 +1389,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkWellInsulated": {
                         "name_key": "perkWellInsulatedName",
                         "parent": "skillFortitudeSurvival",
                         "name": "Bien aislado",
@@ -1428,7 +1428,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkLivingOffTheLand": {
                         "name_key": "perkLivingOffTheLandName",
                         "parent": "skillFortitudeSurvival",
                         "name": "Vivir de la tierra",
@@ -1475,7 +1475,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkPainTolerance": {
                         "name_key": "perkPainToleranceName",
                         "parent": "skillFortitudeSurvival",
                         "name": "Tolerancia al dolor",
@@ -1532,14 +1532,14 @@ data = {
                             }
                         }
                     }
-                ]
+                }
             },
-            {
+            "skillFortitudeRecovery": {
                 "name_key": "skillFortitudeRecoveryName",
                 "name": "Beneficios de recuperación",
                 "icon": "ui_game_symbol_water",
-                "perks": [
-                    {
+                "perks": {
+                    "perkHealingFactor": {
                         "name_key": "perkHealingFactorName",
                         "parent": "skillFortitudeRecovery",
                         "name": "Factor de curación",
@@ -1596,7 +1596,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkSlowMetabolism": {
                         "name_key": "perkSlowMetabolismName",
                         "parent": "skillFortitudeRecovery",
                         "name": "Tripa de hierro",
@@ -1653,7 +1653,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkRuleOneCardio": {
                         "name_key": "perkRuleOneCardioName",
                         "parent": "skillFortitudeRecovery",
                         "name": "Regla 1: Cardio",
@@ -1692,9 +1692,9 @@ data = {
                             }
                         }
                     }
-                ]
+                }
             }
-        ]
+        }
     },
     "attAgility": {
         "name_key": "attAgilityName",
@@ -1754,13 +1754,13 @@ data = {
                 "cost": 3
             }
         },
-        "skills": [
-            {
+        "skills": {
+            "skillAgilityCombat": {
                 "name_key": "skillCombatPerksName",
                 "name": "Beneficios de combate",
                 "icon": "ui_game_symbol_marksmanship",
-                "perks": [
-                    {
+                "perks": {
+                    "perkArchery": {
                         "name_key": "perkArcheryName",
                         "parent": "skillAgilityCombat",
                         "name": "Arquería",
@@ -1817,7 +1817,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkGunslinger": {
                         "name_key": "perkGunslingerName",
                         "parent": "skillAgilityCombat",
                         "name": "Pistola fácil",
@@ -1874,7 +1874,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkDeepCuts": {
                         "name_key": "perkDeepCutsName",
                         "parent": "skillAgilityCombat",
                         "name": "Cortes profundos",
@@ -1931,14 +1931,14 @@ data = {
                             }
                         }
                     }
-                ]
+                }
             },
-            {
+            "skillAgilityAthletics": {
                 "name_key": "skillAgilityAthleticsName",
                 "name": "Beneficios atléticos",
                 "icon": "ui_game_symbol_run",
-                "perks": [
-                    {
+                "perks": {
+                    "perkRunAndGun": {
                         "name_key": "perkRunAndGunName",
                         "parent": "skillAgilityAthletics",
                         "name": "Correr y disparar",
@@ -1977,7 +1977,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkFlurryOfBlows": {
                         "name_key": "perkFlurryOfBlowsName",
                         "parent": "skillAgilityAthletics",
                         "name": "Aluvión de golpes",
@@ -2016,7 +2016,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkLightArmor": {
                         "name_key": "perkLightArmorName",
                         "parent": "skillAgilityAthletics",
                         "name": "Armadura ligera",
@@ -2064,7 +2064,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkParkour": {
                         "name_key": "perkParkourName",
                         "parent": "skillAgilityAthletics",
                         "name": "Parkour",
@@ -2112,14 +2112,14 @@ data = {
                             }
                         }
                     }
-                ]
+                }
             },
-            {
+            "skillAgilityStealth": {
                 "name_key": "skillAgilityStealthName",
                 "name": "Beneficios de sigilo",
                 "icon": "ui_game_symbol_stealth2",
-                "perks": [
-                    {
+                "perks": {
+                    "perkHiddenStrike": {
                         "name_key": "perkHiddenStrikeName",
                         "parent": "skillAgilityStealth",
                         "name": "Ataque oculto",
@@ -2176,7 +2176,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkFromTheShadows": {
                         "name_key": "perkFromTheShadowsName",
                         "parent": "skillAgilityStealth",
                         "name": "De entre las sombras",
@@ -2233,9 +2233,9 @@ data = {
                             }
                         }
                     }
-                ]
+                }
             }
-        ]
+        }
     },
     "attIntellect": {
         "name_key": "attIntellectName",
@@ -2295,13 +2295,13 @@ data = {
                 "cost": 3
             }
         },
-        "skills": [
-            {
+        "skills": {
+            "skillIntellectCombat": {
                 "name_key": "skillCombatPerksName",
                 "name": "Beneficios de combate",
                 "icon": "ui_game_symbol_marksmanship",
-                "perks": [
-                    {
+                "perks": {
+                    "perkElectrocutioner": {
                         "name_key": "perkElectrocutionerName",
                         "parent": "skillIntellectCombat",
                         "name": "Electrocutador",
@@ -2358,7 +2358,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkTurrets": {
                         "name_key": "perkTurretsName",
                         "parent": "skillIntellectCombat",
                         "name": "Creador de robótica",
@@ -2415,14 +2415,14 @@ data = {
                             }
                         }
                     }
-                ]
+                }
             },
-            {
+            "skillIntellectInfluence": {
                 "name_key": "skillIntellectInfluenceName",
                 "name": "Beneficios de influencia",
                 "icon": "ui_game_symbol_influence",
-                "perks": [
-                    {
+                "perks": {
+                    "perkBetterBarter": {
                         "name_key": "perkBetterBarterName",
                         "parent": "skillIntellectInfluence",
                         "name": "Mejor trueque",
@@ -2479,7 +2479,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkDaringAdventurer": {
                         "name_key": "perkDaringAdventurerName",
                         "parent": "skillIntellectInfluence",
                         "name": "El aventurero temerario",
@@ -2527,7 +2527,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkCharismaticNature": {
                         "name_key": "perkCharismaticNatureName",
                         "parent": "skillIntellectInfluence",
                         "name": "Naturaleza carismática",
@@ -2579,14 +2579,14 @@ data = {
                             }
                         }
                     }
-                ]
+                }
             },
-            {
+            "skillIntellectCraftsmanship": {
                 "name_key": "skillIntellectCraftsmanshipName",
                 "name": "Beneficios de la artesanía",
                 "icon": "ui_game_symbol_misc_crafting",
-                "perks": [
-                    {
+                "perks": {
+                    "perkPhysician": {
                         "name_key": "perkPhysicianName",
                         "parent": "skillIntellectCraftsmanship",
                         "name": "Médico",
@@ -2634,7 +2634,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkAdvancedEngineering": {
                         "name_key": "perkAdvancedEngineeringName",
                         "parent": "skillIntellectCraftsmanship",
                         "name": "Ingeniería avanzada",
@@ -2691,7 +2691,7 @@ data = {
                             }
                         }
                     },
-                    {
+                    "perkGreaseMonkey": {
                         "name_key": "perkGreaseMonkeyName",
                         "parent": "skillIntellectCraftsmanship",
                         "name": "Mono grasiento",
@@ -2748,8 +2748,8 @@ data = {
                             }
                         }
                     }
-                ]
+                }
             }
-        ]
+        }
     }
 }

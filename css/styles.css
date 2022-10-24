@@ -4,7 +4,7 @@ body {
 
 main {
     text-transform: uppercase;
-    color: gainsboro;
+    color: white;
     background-image: url("../public/background.png");
     padding-top: 5vh;
     height: 100vh;
@@ -36,12 +36,11 @@ main {
     justify-content: space-between;
     background-color: black;
     text-transform: uppercase;
-    color: whitesmoke;
+    color: white;
 }
 
 label{
     letter-spacing: 0.25rem;
-    font-size: 1rem;
     margin: 10px;
 }
 
@@ -74,11 +73,31 @@ label{
     width: 20%;
     max-width: 50px;
     min-width: 20px;
-    opacity: .5;
+    opacity: .4;
     cursor: pointer;
 }
 
-.selectable-icon img{
+.selectable-icon:hover {
+    opacity: 1;
+}
+
+.selectable-icon img {
+    width: 100%;
+    height: auto;
+}
+
+.selected-icon {
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    width: 20%;
+    max-width: 50px;
+    min-width: 20px;
+    opacity: .85;
+    cursor: pointer;
+}
+
+.selected-icon img {
     width: 100%;
     height: auto;
 }
@@ -98,8 +117,6 @@ label{
 .attribute-list-item {
     display: flex;
     align-items: center;
-    color: whitesmoke;
-    font-weight: bold;
 }
 
 .attribute-list-item .info {
@@ -111,4 +128,27 @@ label{
 .attribute-list-item img {
     width: 32px;
     height: auto;
+}
+
+#selectable {
+    opacity: .8;
+    cursor: pointer;
+}
+
+#selectable label {
+    cursor: pointer;
+}
+
+#selectable:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    opacity: 1;
+}
+
+#non-selectable {
+    background-color: rgba(0,0,0,.5);
+}
+
+#selected {
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 1;
 }
