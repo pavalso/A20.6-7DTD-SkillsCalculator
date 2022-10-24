@@ -220,7 +220,7 @@ label{
 }
 
 .selectable-perk div label {
-    text-transform: capitalize;
+    text-transform: none;
     letter-spacing: 0.05rem;
     margin: 0;
 }
