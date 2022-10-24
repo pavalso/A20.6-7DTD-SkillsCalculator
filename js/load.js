@@ -54,11 +54,11 @@ function loadAttributeInHtml(name) {
       ATTRIBUTES_TREE.innerHTML += new_attr;
     }
   }
-}
 
-function clear() {
-  let actual_tree = document.querySelectorAll(".list-item");
-  actual_tree.forEach(node => {
-    node.remove();
-  })
+  function clear() {
+    let actual_tree = document.querySelectorAll(".list-item");
+    actual_tree.forEach(node => {
+      node.remove();
+    })
+  }
 }

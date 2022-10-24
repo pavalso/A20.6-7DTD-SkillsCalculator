@@ -2,10 +2,20 @@ body {
     margin: 0;
 }
 
+#bg {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+  
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
 main {
     text-transform: uppercase;
     color: white;
-    background-image: url("../public/background.png");
     padding-top: 5vh;
     height: 100vh;
 }
@@ -48,6 +58,7 @@ label{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 2px solid black;
 }
 
 #available-points {
@@ -103,7 +114,7 @@ label{
 }
 
 .list-item {
-    border-top: 2px solid black;
+    border-bottom: 2px solid black;
 }
 
 .margin-1 {
@@ -152,3 +163,85 @@ label{
     background-color: rgba(255, 255, 255, 0.5);
     opacity: 1;
 }
+
+.icon-description {
+    display: flex;
+    align-items: stretch;
+    border: 2px solid black;
+    background-color: rgba(0,0,0,.4);
+}
+
+.icon-description img {
+    border-right: 2px solid black;
+    width: 100px;
+    height: 100px;
+    align-self: center;
+}
+
+.icon-description label {
+    font-size: .9rem;
+}
+
+.selectable-perk {
+    display: flex;
+    border-bottom: 2px solid black;
+    min-height: 100px;  
+}
+
+#perk-index {
+    align-self: center;
+    width: 40px;
+    min-width: 40px;
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+#perk-level-name {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.selectable-perk {
+    width: 100%;
+}
+
+.selectable-perk img {
+    width: 40px;
+    height: 40px;
+    align-self: center;
+    margin: 15px;
+}
+
+.selectable-perk div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.selectable-perk div label {
+    text-transform: capitalize;
+    letter-spacing: 0.05rem;
+    margin: 0;
+}
+
+.bought-perk {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.unblocked-perk {
+    cursor: pointer;
+}
+
+.unblocked-perk label {
+    cursor: pointer;
+}
+
+.unblocked-perk:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.blocked-perk {
+    opacity: .5;
+}
+
