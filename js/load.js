@@ -112,8 +112,12 @@ function getCost() {
 
 function loadSaveString(string) {
   let x = 0;
+  console.log(user_levels);
   for (let i in user_levels){
     let level = parseInt(string[x]) + 1;
+    if (isNaN(level)){
+      return;
+    }
     user_levels[i] = level;
     x += 1;
   }

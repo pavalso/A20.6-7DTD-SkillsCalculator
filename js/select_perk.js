@@ -72,7 +72,6 @@ function showPerkInfo(perk, key) {
         return;
       }
       let id = element.id;
-      let level = levels[id];
       let index = parseInt(id);
       user_levels[key] = index + 1;
       element.className = "bought-perk";
