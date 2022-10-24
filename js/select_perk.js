@@ -3,8 +3,8 @@ const PERK_ICON = document.getElementById("perk-icon");
 const PERK_DESCRIPTION = document.getElementById("perk-description");
 const LEVELS_TREE = document.getElementById("levels-tree");
 
-const PERK_DIV = (index, name, description) => `
-  <div class="unblocked-perk" id="perk">
+const PERK_DIV = (index, name, description, id, state) => `
+  <div class="${state}" id="${id}">
     <div class="selectable-perk">
       <label id="perk-index">${index}</label>
       <div>
@@ -15,7 +15,8 @@ const PERK_DIV = (index, name, description) => `
     </div>
   </div>`;
 
-let selected_perk = null
+let selected_perk_div = null;
+let selected_perk_data = null;
 
 function updatePerksListeners() {
   let items = document.querySelectorAll('[id=selectable]');
@@ -29,8 +30,8 @@ function updatePerksListeners() {
 }
 
 function selectPerk(perkElement) {
-  if (selected_perk != null){
-    selected_perk.id = "selectable";
+  if (selected_perk_div != null){
+    selected_perk_div.id = "selectable";
   }
   let skill = perkElement.children[0].id;
   let perk = perkElement.children[0].children[0].id;
@@ -40,27 +41,50 @@ function selectPerk(perkElement) {
   } else {
     perk_data = data[selected]["skills"][skill]["perks"][perk];
   }
-  selected_perk = perkElement;
-  selected_perk.id = "selected";
-  showPerkInfo(perk_data);
+  selected_perk_div = perkElement;
+  selected_perk_div.id = "selected";
+  selected_perk_data = perk_data;
+  showPerkInfo(perk_data, perk);
 }
 
-function showPerkInfo(perk) {
+function showPerkInfo(perk, key) {
   clear();
   PERK_NAME.textContent = perk["name"];
   PERK_ICON.src = `public/icons/${perk["icon"]}.png`;
   PERK_DESCRIPTION.textContent = perk["description"];
   let levels = perk["levels"];
-  for (let i in levels){
+  for (let i in levels) {
     let level = levels[i];
-    let new_div = PERK_DIV(i, level["short_description"], level["long_description"]);
+    let actual_level = user_levels[key] || 1;
+    let status = "blocked-perk";
+    if (i < actual_level){
+      status = "bought-perk";
+    } else if (i == actual_level){
+      status = "unblocked-perk";
+    }
+    let new_div = PERK_DIV(i, level["short_description"], level["long_description"], i, status);
     LEVELS_TREE.innerHTML += new_div;
+  }
+  for (let i in levels) {
+    let element = document.getElementById(i);
+    element.addEventListener("click", () => {
+      if (element.className != "unblocked-perk") {
+        return;
+      }
+      let id = element.id;
+      let level = levels[id];
+      let index = parseInt(id);
+      user_levels[key] = index + 1;
+      element.className = "bought-perk";
+      refreshLevels();
+      if (index >= perk["max_level"]) {
+        return;
+      }
+      document.getElementById(index + 1).className = "unblocked-perk";
+    })
   }
 
   function clear() {
-    let actual_tree = LEVELS_TREE.querySelectorAll("#perk");
-    actual_tree.forEach(node => {
-      node.remove();
-    })
+    LEVELS_TREE.innerHTML = "";
   }
 }

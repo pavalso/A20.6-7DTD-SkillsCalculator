@@ -13,7 +13,7 @@ const ATTR_DIV = (margin, id, icon, name, max_level, level, parent) => `
       <img src="public/icons/${icon}.png">
       <div class="info">
         <label>${name}</label>
-        <label>${level}/${max_level}</label>
+        <label><span id="level">${level}</span>/${max_level}</label>
       </div>
     </div>
     </div>
@@ -31,6 +31,8 @@ const ATTR_DIV = (margin, id, icon, name, max_level, level, parent) => `
       </div>
     </div>
   </div>`;
+
+let user_levels = { };
 
 for (let attribute in data) {
   let attributeData = data[attribute];
@@ -55,10 +57,19 @@ function loadAttributeInHtml(name) {
     }
   }
 
+  refreshLevels();
+
   function clear() {
-    let actual_tree = document.querySelectorAll(".list-item");
-    actual_tree.forEach(node => {
-      node.remove();
-    })
+    ATTRIBUTES_TREE.innerHTML = "";
+  }
+}
+
+function refreshLevels() {
+  console.log(user_levels);
+  let levels_spans = ATTRIBUTES_TREE.querySelectorAll("#level");
+  for (let i = 0; i < levels_spans.length; i++) {
+    let level = levels_spans[i];
+    let id = level.parentNode.parentNode.parentNode.id;
+    level.textContent = user_levels[id] - 1 || 0;
   }
 }
