@@ -4,14 +4,16 @@ const PERK_DESCRIPTION = document.getElementById("perk-description");
 const LEVELS_TREE = document.getElementById("levels-tree");
 
 const PERK_DIV = (index, name, description, id, state, cost) => `
-  <div class="${state}" id="${id}">
-    <div class="selectable-perk">
-      <label id="perk-index">${index}</label>
-      <div>
-        <label id="perk-level-name">${name}</label>
-        <label>${description}</label>
+  <div class="levels-tree" id="levels-tree">
+    <div class="${state}" id="${id}">
+      <div class="selectable-perk">
+        <label id="perk-index">${index}</label>
+        <div>
+          <label id="perk-level-name">${name}</label>
+          <label>${description}</label>
+        </div>
+        <label class="level-needed">${cost}</label>
       </div>
-      <img src="public/icons/ui_game_symbol_bat.png" title="Cost : ${cost} point(s)">
     </div>
   </div>`;
 
@@ -62,7 +64,19 @@ function showPerkInfo(perk, key) {
     } else if (i == actual_level){
       status = "unblocked-perk";
     }
-    let new_div = PERK_DIV(i, level["short_description"], level["long_description"], i, status, level["cost"]);
+    let required_level = perk["requirements"];
+    if (required_level != null && i >= actual_level){
+      let attr_lvl = user_levels[selected];
+      let required_lvl = required_level[i]["required_level"];
+      if (attr_lvl <= required_lvl){
+        status = "blocked-perk";
+      }
+    }
+    let msg = "";
+    if (required_level != null){
+      msg = required_level[i]["required_level"];
+    }
+    let new_div = PERK_DIV(i, level["short_description"], level["long_description"], i, status, msg);
     LEVELS_TREE.innerHTML += new_div;
   }
   for (let i in levels) {
@@ -78,6 +92,14 @@ function showPerkInfo(perk, key) {
       refreshLevels();
       if (index >= perk["max_level"]) {
         return;
+      }
+      let required_level = perk["requirements"];
+      if (required_level != null){
+        let attr_lvl = user_levels[selected];
+        let required_lvl = required_level[index + 1]["required_level"];
+        if (attr_lvl < required_lvl){
+          return;
+        }
       }
       document.getElementById(index + 1).className = "unblocked-perk";
     })

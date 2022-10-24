@@ -96,7 +96,7 @@ function getSaveString() {
   let save_string = "";
   for (let i in user_levels){
     let level = user_levels[i];
-    save_string += level - 1;
+    save_string += (level - 1).toString(16);
   }
   return save_string;
 }
@@ -112,9 +112,9 @@ function getCost() {
 
 function loadSaveString(string) {
   let x = 0;
-  console.log(user_levels);
   for (let i in user_levels){
-    let level = parseInt(string[x]) + 1;
+    let level = parseInt(string[x], 16) + 1;
+    console.log(level);
     if (isNaN(level)){
       return;
     }

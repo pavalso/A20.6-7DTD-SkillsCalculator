@@ -245,3 +245,8 @@ label{
     opacity: .5;
 }
 
+.level-needed {
+    align-self: center;
+    font-size: 1rem;
+}
+
