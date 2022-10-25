@@ -57,6 +57,18 @@ function displayAttrPerkData(element) {
   return levelsDivs;
 }
 
+function updateTotalPointCost() {
+  USED_POINTS.innerText = getTotalPointCost();
+}
+
+function getTotalPointCost() {
+  let cost = 0;
+  for (const [key, attr] of Object.entries(attributesMap)) {
+    cost += attr.getPointCost();
+  }
+  return cost;
+}
+
 function isLevelAvailable(level) {
   return level.requiredLevel <= getLevel(currentAttribute)
 }

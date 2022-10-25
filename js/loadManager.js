@@ -1,5 +1,7 @@
 const ICON_PANEL = document.getElementById("icon-panel");
+const LINK_LABEL = document.getElementById("link-label");
 
+let url = window.location.href;
 
 let currentAttribute = null;
 let lastSelected = null;
@@ -20,9 +22,20 @@ function onDocumentLoad() {
   let defaultAttribute = ICON_PANEL.firstElementChild;
   let index = window.location.href.indexOf("#");
   if (index != -1){
-    loadSaveString(window.location.href.substring(index + 1));
+    let saveString = window.location.href.substring(index + 1)
+    url = window.location.href.substring(0, index);
+    loadSaveString(saveString);
   }
+  let saveString = getSaveString();
+  let shareLink = `${url}#${saveString}`;
+  LINK_LABEL.textContent = shareLink;
+  updateTotalPointCost();
   changeSelectedAttribute(attributesMap[defaultAttribute.id]);
+
+  let refreshButton = document.getElementById("refresh-btn");
+  refreshButton.addEventListener("click", () => {
+    window.location.href = "";
+  });
 
   function onIconClick(attribute) {
     changeSelectedAttribute(attribute);
@@ -71,6 +84,11 @@ function changeSelectedPerk(perk) {
       changeSelectedPerk(perk);
       let levelDiv = document.getElementById(`level-${perk.key}`);
       levelDiv.textContent = getLevel(perk);
+      updateTotalPointCost();
+      let saveString = getSaveString();
+      let shareLink = `${url}#${saveString}`;
+      LINK_LABEL.textContent = shareLink;
+      window.location.replace(`\#${saveString}`);
     });
   });
 } 
