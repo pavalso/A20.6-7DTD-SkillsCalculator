@@ -16,7 +16,7 @@ const SELECTABLE_SKILL = (margin, id, icon, name, max_level, level) => {
           <img src="public/icons/${icon}.png">
           <div class="info">
             <label>${name}</label>
-            <label><span id="level">${level}</span>/${max_level}</label>
+            <label><span id="level-${id}">${level}</span>/${max_level}</label>
           </div>
         </div>
         </div>

@@ -16,7 +16,7 @@ const STATES = {
 
 function displayAttribute(attribute) {
   ATTRIBUTES_TREE.innerHTML = "";
-  let newTreeDiv = SELECTABLE_SKILL(0, attribute.key, attribute.icon, attribute.name, attribute.maxLevel, 0);
+  let newTreeDiv = SELECTABLE_SKILL(0, attribute.key, attribute.icon, attribute.name, attribute.maxLevel, getLevel(attribute));
   let newDivs = {"": [newTreeDiv]};
   ATTRIBUTES_TREE.append(newTreeDiv);
   for (const [key, skill] of Object.entries(attribute.skills)) {
@@ -24,7 +24,7 @@ function displayAttribute(attribute) {
     ATTRIBUTES_TREE.append(newTreeDiv);
     newDivs[skill.key] = [ ];
     for (const [key, perk] of Object.entries(skill.perks)) {
-      newTreeDiv = SELECTABLE_SKILL(2, perk.key, perk.icon, perk.name, perk.maxLevel, 0);
+      newTreeDiv = SELECTABLE_SKILL(2, perk.key, perk.icon, perk.name, perk.maxLevel, getLevel(perk));
       newDivs[skill.key].push(newTreeDiv);
       ATTRIBUTES_TREE.append(newTreeDiv);
     }
@@ -37,14 +37,26 @@ function displayAttrPerkData(element) {
   PERK_NAME.textContent = element.name;
   PERK_ICON.src = `public/icons/${element.icon}.png`;
   PERK_DESCRIPTION.textContent = element.description;
+  let currentLevel = getLevel(element);
+  let levelsDivs = [ ];
   for (const [i, level] of Object.entries(element.levels)) {
     let state = STATES.blocked;
     if (level.isBought) {
       state = STATES.bought;
-    } else if (level.requiredLevel < getLevel(currentAttribute)) {
-      state = STATES.blocked;
+      if (!(isLevelAvailable(level))) {
+        level.isBought = false;
+        state = STATES.blocked;
+      }
+    } else if (isLevelAvailable(level) && parseInt(level.key) == currentLevel + 1) {
+      state = STATES.unblocked;
     }
-    let newDiv = PERK_DIV(i, level.name, level.description, level.key, state, level.cost);
+    let newDiv = PERK_DIV(i, level.name, level.description, level.key, state, level.requiredLevel);
     LEVELS_TREE.append(newDiv);
+    levelsDivs.push(newDiv);
   }
+  return levelsDivs;
+}
+
+function isLevelAvailable(level) {
+  return level.requiredLevel <= getLevel(currentAttribute)
 }

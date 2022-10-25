@@ -9,7 +9,7 @@ class JsonObject {
 class Level extends JsonObject{
     constructor(level, data) {
         super(level, data);
-        this.isBought = true;
+        this.isBought = false;
     }
 
     read(rawData) {
@@ -19,7 +19,7 @@ class Level extends JsonObject{
         this.cost = levelData["cost"];
         let requirementData = rawData["requirements"];
         if (requirementData == null){
-            this.requiredLevel = null;
+            this.requiredLevel = 0;
             return;
         }
         requirementData = requirementData[this.key];
@@ -76,6 +76,7 @@ class Attribute extends JsonObject {
     read(rawData) {
         this.levels = { };
         this.skills = { };
+        this.perks = { };
         let attrData = rawData[this.key];
         this.nameKey = attrData["name_key"];
         this.name = attrData["name"];
@@ -87,10 +88,40 @@ class Attribute extends JsonObject {
             let newLevel = new Level(i, attrData);
             this.levels[i] = newLevel;
         }
+        this.levels["1"].isBought = true;
         let skill = attrData["skills"];
         for (let name in skill) {
             let newSkill = new Skill(name, skill);
             this.skills[name] = newSkill;
+            for (const [key, perk] of Object.entries(newSkill.perks)) {
+                this.perks[key] = perk;
+            }
+        }
+        this.perks[this.key] = this;
+    }
+
+    setLevel(level, perk) {
+        let perkData = this.perks[perk];
+        while ((level -= 1) >= 0) {
+            if (perkData.maxLevel < level + 1) {
+                return;
+            }
+            perkData.levels[level + 1].isBought = true;
+        }
+    }
+
+    toSaveString() {
+        let saveString = "";
+        for (const [key, perk] of Object.entries(this.perks)) {
+            saveString += getLevel(perk).toString(16);
+        }
+        return saveString;
+    }
+
+    updateFromSaveString(saveString) {
+        saveString = [...saveString];
+        for (const [key, perk] of Object.entries(this.perks)) {
+            this.setLevel(parseInt(saveString.shift(), 16), key);
         }
     }
 }
@@ -107,5 +138,5 @@ function getLevel(haveLevelsAttribute) {
     if (!lastLevel) {
         return 0;
     }
-    return lastLevel.key;
+    return parseInt(lastLevel.key);
 }

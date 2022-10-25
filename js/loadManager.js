@@ -18,6 +18,7 @@ function onDocumentLoad() {
   }
 
   let defaultAttribute = ICON_PANEL.firstElementChild;
+  loadSaveString("5553331535a-0000000001-0000010001-0000000001-300002006");
   changeSelectedAttribute(attributesMap[defaultAttribute.id]);
 
   function onIconClick(attribute) {
@@ -36,16 +37,18 @@ function changeSelectedAttribute(attribute) {
   let treeDivs = displayAttribute(attribute);
   for (const [skill, perks] of Object.entries(treeDivs)) {
     perks.forEach((perkDiv, i) => {
-      if (!skill) {
-        return;
+      let perk = attribute;
+      if (skill) {
+        perk = attribute.skills[skill].perks[perkDiv.id];
       }
-      let perk = attribute.skills[skill].perks[perkDiv.id];
       perkDiv.addEventListener("click", () => {
-        currentAttribute = attribute;
         onPerkClick(perk);
       });
     });
   }
+
+  currentAttribute = attribute;
+  changeSelectedPerk(currentAttribute);
 
   function onPerkClick(perk) {
     changeSelectedPerk(perk);
@@ -53,7 +56,37 @@ function changeSelectedAttribute(attribute) {
 }
 
 function changeSelectedPerk(perk) {
-  displayAttrPerkData(perk);
+  let levelsDivs = displayAttrPerkData(perk);
+  levelsDivs.forEach(div => {
+    div.addEventListener("click", () => {
+      let state = div.className;
+      let id = div.id;
+      if (state != STATES.unblocked){
+        return;
+      }
+      perk.levels[id].isBought = true;
+      changeSelectedPerk(perk);
+      let levelDiv = document.getElementById(`level-${perk.key}`);
+      levelDiv.textContent = getLevel(perk);
+    });
+  });
 } 
+
+function getSaveString() {
+  let saveString = "";
+  for (const [key, attr] of Object.entries(attributesMap)) {
+    saveString += `-${attr.toSaveString()}`;
+  }
+  saveString = saveString.substring(1);
+  return saveString;
+}
+
+function loadSaveString(saveString) {
+  let strings = saveString.split("-")
+  for (const [key, attr] of Object.entries(attributesMap)) {
+    let attrSaveString = strings.shift();
+    attr.updateFromSaveString(attrSaveString);
+  }
+}
 
 onDocumentLoad();
