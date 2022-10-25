@@ -124,6 +124,19 @@ class Attribute extends JsonObject {
             this.setLevel(parseInt(saveString.shift(), 16), key);
         }
     }
+
+    getPointCost() {
+        let cost = -1;
+        for (const [key, perk] of Object.entries(this.perks)) {
+            for (const [key, level] of Object.entries(perk.levels)) {
+                if (!level.isBought) {
+                    continue;
+                }
+                cost += level.cost;
+            }
+        }
+        return cost;
+    }
 }
 
 function getLevel(haveLevelsAttribute) {

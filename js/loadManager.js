@@ -18,7 +18,10 @@ function onDocumentLoad() {
   }
 
   let defaultAttribute = ICON_PANEL.firstElementChild;
-  loadSaveString("5553331535a-0000000001-0000010001-0000000001-300002006");
+  let index = window.location.href.indexOf("#");
+  if (index != -1){
+    loadSaveString(window.location.href.substring(index + 1));
+  }
   changeSelectedAttribute(attributesMap[defaultAttribute.id]);
 
   function onIconClick(attribute) {
